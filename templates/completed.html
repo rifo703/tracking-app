@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Tamamlanan Ürünler</h2>
+<ul>
+{% for c in completed %}
+    <li>{{ c.complete_time }} - {{ c.firma }} - {{ c.adet }} adet - {{ c.renk }} - {{ c.kalinlik }} - {{ c.ozellik }} - Aşama: {{ c.asama }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

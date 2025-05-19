@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>İş Takip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/">Mal Girişi</a> |
+        <a href="/production">Üretim</a> |
+        <a href="/completed">Tamamlananlar</a>
+    </nav>
+    <hr>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

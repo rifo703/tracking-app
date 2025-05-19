@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Mal Girişi</h2>
+<form action="/add" method="post">
+    <label>Müşteri:
+        <select name="firma" required>
+            {% for c in customers %}
+                <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label>Adet: <input type="number" name="adet" required></label>
+    <label>Renk: <input type="text" name="renk" required></label>
+    <label>Kalınlık: <input type="text" name="kalinlik" required></label>
+    <label>Özellik: <input type="text" name="ozellik" required></label>
+    <button type="submit">Ekle</button>
+</form>
+<form action="/add-customer" method="post" style="margin-top:10px">
+    <label>Yeni Müşteri: <input type="text" name="name" required></label>
+    <button type="submit">Müşteri Ekle</button>
+</form>
+<ul>
+{% for d in deliveries %}
+    <li>
+        {{ d.tarih }} - {{ d.firma }} - {{ d.adet }} adet - {{ d.renk }} - {{ d.kalinlik }} - {{ d.ozellik }}
+        <form action="/delete/{{ d.id }}" method="post" style="display:inline">
+            <button type="submit" style="background:red">Sil</button>
+        </form>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
